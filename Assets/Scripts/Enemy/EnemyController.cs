@@ -16,7 +16,7 @@ namespace StatePattern.Enemy
         protected NavMeshAgent Agent => enemyView.Agent;
         protected EnemyScriptableObject Data => enemyScriptableObject;
         protected Quaternion Rotation => enemyView.transform.rotation;
-        protected Vector3 Position => enemyView.transform.position;
+        public Vector3 Position => enemyView.transform.position;
 
 
         public EnemyController(EnemyScriptableObject enemyScriptableObject)
@@ -47,7 +47,7 @@ namespace StatePattern.Enemy
             Agent.speed = enemyScriptableObject.MovementSpeed;
         }
 
-        public virtual void Die() 
+        public virtual void Die()
         {
             GameService.Instance.EnemyService.EnemyDied(this);
             enemyView.Destroy();
@@ -61,8 +61,8 @@ namespace StatePattern.Enemy
 
         public void SetRotation(Quaternion desiredRotation) => enemyView.transform.rotation = desiredRotation;
 
-        public void ToggleEnemyColor(bool value)=>  enemyView.ToggleColor(value);
-        
+        public void ToggleEnemyColor(bool value) => enemyView.ToggleColor(value);
+
 
         public void Shoot()
         {
@@ -78,6 +78,10 @@ namespace StatePattern.Enemy
         public virtual void PlayerExitedRange() { }
 
         public virtual void UpdateEnemy() { }
+        public float GetIdleDuration() => Data.IdleTime;
+        public float GetFireRate() => Data.RateOfFire;
+        public float GetRotationSpeed() => Data.RotationSpeed;
+        public float GetRotationThreshold() => Data.RotationThreshold;
     }
 
     public enum EnemyState
@@ -85,4 +89,5 @@ namespace StatePattern.Enemy
         ACTIVE,
         DEACTIVE
     }
+
 }
