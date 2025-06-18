@@ -78,6 +78,8 @@ namespace StatePattern.Enemy
         public virtual void PlayerExitedRange() { }
 
         public virtual void UpdateEnemy() { }
+
+        public void DebugLOG() => enemyView.Print();
     }
 
     public enum EnemyState

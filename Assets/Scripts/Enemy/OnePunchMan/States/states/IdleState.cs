@@ -17,8 +17,18 @@ namespace StatePattern.Enemy
         public void Update()
         {
             timer -= Time.deltaTime;
+            Owner.DebugLOG();
             if (timer <= 0)
-                stateMachine.ChangeState(States.ROTATING);
+            {
+                if (Owner.GetType() == typeof(OnePunchManController))
+                {
+                    stateMachine.ChangeState(States.ROTATING);
+                }
+                else
+                {
+                    stateMachine.ChangeState(States.PATROLLING);
+                }
+            }
         }
 
         public void OnStateExit() => timer = 0;

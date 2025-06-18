@@ -82,5 +82,6 @@ namespace StatePattern.Enemy
             Destroy(gameObject);
         }
 
+        public void Print() => Debug.Log("Working");
     }
 }

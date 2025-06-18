@@ -1,7 +1,5 @@
 using StatePattern.Main;
 using StatePattern.Player;
-using System;
-using Unity.VisualScripting;
 
 namespace StatePattern.Enemy
 {
