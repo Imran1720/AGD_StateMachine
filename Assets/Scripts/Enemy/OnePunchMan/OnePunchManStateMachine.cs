@@ -2,11 +2,11 @@ using System.Collections.Generic;
 
 namespace StatePattern.Enemy
 {
-    public class OnePunchManStateMachine
+    public class OnePunchManStateMachine : IStateMachine
     {
         private OnePunchManController Owner;
         private IState currentState;
-        protected Dictionary<OnePunchManStates, IState> States = new Dictionary<OnePunchManStates, IState>();
+        protected Dictionary<States, IState> EnemyStates = new Dictionary<States, IState>();
 
         public OnePunchManStateMachine(OnePunchManController Owner)
         {
@@ -17,14 +17,14 @@ namespace StatePattern.Enemy
 
         private void CreateStates()
         {
-            States.Add(OnePunchManStates.IDLE, new IdleState(this));
-            States.Add(OnePunchManStates.ROTATING, new RotatingState(this));
-            States.Add(OnePunchManStates.SHOOTING, new ShootingState(this));
+            EnemyStates.Add(Enemy.States.IDLE, new IdleState(this));
+            EnemyStates.Add(Enemy.States.ROTATING, new RotatingState(this));
+            EnemyStates.Add(Enemy.States.SHOOTING, new ShootingState(this));
         }
 
         private void SetOwner()
         {
-            foreach(IState state in States.Values)
+            foreach (IState state in EnemyStates.Values)
             {
                 state.Owner = Owner;
             }
@@ -32,20 +32,23 @@ namespace StatePattern.Enemy
 
         public void Update() => currentState?.Update();
 
-        protected void ChangeState(IState newState)
+        protected void ProcessState(IState newState)
         {
             currentState?.OnStateExit();
             currentState = newState;
             currentState?.OnStateEnter();
         }
 
-        public void ChangeState(OnePunchManStates newState) => ChangeState(States[newState]);
+        public void ChangeState(States newState) => ProcessState(EnemyStates[newState]);
+
     }
 
-    public enum OnePunchManStates
+    public enum States
     {
         IDLE,
         ROTATING,
-        SHOOTING
+        SHOOTING,
+        PATROLLING,
+        CHASING
     }
 }

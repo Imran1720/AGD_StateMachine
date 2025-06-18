@@ -8,7 +8,7 @@ namespace StatePattern.Enemy
 {
     public class ShootingState : IState
     {
-        public OnePunchManController Owner { get; set; }
+        public EnemyController Owner { get; set; }
         private OnePunchManStateMachine stateMachine;
         private PlayerController target;
         private float shootTimer;
@@ -26,7 +26,7 @@ namespace StatePattern.Enemy
             Quaternion desiredRotation = CalculateRotationTowardsPlayer();
             Owner.SetRotation(RotateTowards(desiredRotation));
 
-            if(IsRotationComplete(desiredRotation))
+            if (IsRotationComplete(desiredRotation))
             {
                 shootTimer -= Time.deltaTime;
                 if (shootTimer <= 0)
