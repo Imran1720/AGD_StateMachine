@@ -14,7 +14,7 @@ namespace StatePattern.Enemy
         {
             enemyView.SetController(this);
             CreateStateMachine();
-            stateMachine.ChangeState(States.IDLE);
+            stateMachine.ChangeState(Enemy.States.IDLE);
         }
 
         private void CreateStateMachine() => stateMachine = new PatrolManStateMachine(this);
@@ -30,9 +30,9 @@ namespace StatePattern.Enemy
         public override void PlayerEnteredRange(PlayerController targetToSet)
         {
             base.PlayerEnteredRange(targetToSet);
-            stateMachine.ChangeState(States.CHASING);
+            stateMachine.ChangeState(Enemy.States.CHASING);
         }
 
-        public override void PlayerExitedRange() => stateMachine.ChangeState(States.IDLE);
+        public override void PlayerExitedRange() => stateMachine.ChangeState(Enemy.States.IDLE);
     }
 }
