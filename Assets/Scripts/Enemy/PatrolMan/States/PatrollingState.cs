@@ -11,7 +11,7 @@ namespace StatePattern.Enemy
         private int currentPatrollingIndex = -1;
         private Vector3 destination;
 
-        public PatrollingState(OnePunchManStateMachine stateMachine)
+        public PatrollingState(IStateMachine stateMachine)
         {
             this.stateMachine = stateMachine;
         }
