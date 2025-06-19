@@ -3,7 +3,6 @@ using System;
 
 namespace StatePattern.Enemy
 {
-
     public class HitmanStateMachine : GenericStateMachine<HitmanController>
     {
         public HitmanStateMachine(HitmanController Owner) : base(Owner)

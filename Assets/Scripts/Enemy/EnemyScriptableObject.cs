@@ -9,6 +9,7 @@ namespace StatePattern.Enemy
     public class EnemyScriptableObject : ScriptableObject
     {
         public int LevelID;
+        public int CloneCount;
         public EnemyView EnemyPrefab;
         public EnemyType Type;
         public Vector3 SpawnPosition;

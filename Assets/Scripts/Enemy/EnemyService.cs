@@ -63,6 +63,9 @@ namespace StatePattern.Enemy
                 case EnemyType.Hitman:
                     enemy = new HitmanController(enemyScriptableObject);
                     break;
+                case EnemyType.Mirage:
+                    enemy = new MirageController(enemyScriptableObject);
+                    break;
                 default:
                     enemy = new EnemyController(enemyScriptableObject);
                     break;
@@ -70,6 +73,8 @@ namespace StatePattern.Enemy
 
             return enemy;
         }
+
+        public void AddEnemy(EnemyController enemy) => activeEnemies.Add(enemy);
 
         public void EnemyDied(EnemyController deadEnemy)
         {

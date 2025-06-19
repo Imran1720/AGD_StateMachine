@@ -63,6 +63,8 @@ namespace StatePattern.Enemy
 
         public void ToggleEnemyColor(bool value) => enemyView.ToggleColor(value);
 
+        public void ChangeEnemyColor(EnemyColorType type) => enemyView.ChangeColor(type);
+
 
         public virtual void Shoot()
         {
