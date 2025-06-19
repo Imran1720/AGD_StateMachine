@@ -4,15 +4,15 @@
 *  Link: https://outscal.com/courses
 **/
 
-using UnityEngine;
-using StatePattern.Utilities;
 using StatePattern.Enemy;
-using StatePattern.Sound;
+using StatePattern.Events;
 using StatePattern.Level;
 using StatePattern.Player;
-using System.Collections.Generic;
+using StatePattern.Sound;
 using StatePattern.UI;
-using StatePattern.Events;
+using StatePattern.Utilities;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace StatePattern.Main
 {

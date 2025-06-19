@@ -9,7 +9,7 @@ namespace StatePattern.UI
         private LevelSelectionUIView levelSelectionView;
         private LevelButtonView levelButtonPrefab;
         private List<LevelButtonView> levelButtons;
-        
+
         public LevelSelectionUIController(LevelSelectionUIView levelSelectionView, LevelButtonView levelButtonPrefab)
         {
             this.levelSelectionView = levelSelectionView;

@@ -25,7 +25,7 @@ namespace StatePattern.Enemy
             Quaternion desiredRotation = CalculateRotationTowardsPlayer();
             Owner.SetRotation(RotateTowards(desiredRotation));
 
-            if(IsRotationComplete(desiredRotation))
+            if (IsRotationComplete(desiredRotation))
             {
                 shootTimer -= Time.deltaTime;
                 if (shootTimer <= 0)
